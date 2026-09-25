@@ -1,0 +1,45 @@
+[project]
+name = "adcs-sim"
+version = "0.1.0"
+description = "Quaternion-based attitude determination and control simulation for a 3U CubeSat in LEO"
+readme = "README.md"
+authors = [
+    { name = "EdSmithe", email = "ejasmith2005@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5.3",
+    "scipy>=1.18.1",
+]
+
+[project.scripts]
+adcs-sim = "adcs_sim:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.168.0",
+    "mypy>=2.3.1",
+    "pre-commit>=4.6.2",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.16.8",
+    "scipy-stubs>=1.18.1.1",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "NPY", "RUF"]
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=adcs_sim --cov-report=term-missing"
