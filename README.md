@@ -2,7 +2,7 @@
 
 A quaternion-based attitude determination and control simulation for a 3U CubeSat in a 500 km sun-synchronous orbit: B-dot detumbling, a Multiplicative Extended Kalman Filter fusing gyro, magnetometer and sun sensor, and reaction-wheel pointing control.
 
-> **Status: work in progress.** Currently in Phase 0 (foundations: repo setup, conventions, quaternion library). See [`docs/planning/PROJECT_PLAN.md`](docs/planning/PROJECT_PLAN.md) for the full plan.
+## **Phase 0 complete — Phase 1: rigid-body dynamics next**
 
 ## Requirements
 

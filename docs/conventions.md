@@ -13,6 +13,7 @@ Frame, quaternion and unit conventions for this project. Fixed once, here, and r
   ```
 
 - Rotation order is described by the subscripts: if `q_ab` rotates b → a and `q_bc` rotates c → b, then `q_ac = q_ab ⊗ q_bc`. The product is not commutative.
+- 'q' and '-q' represent the same rotation.
 
 ## Direction cosine matrices
 
@@ -25,13 +26,13 @@ Frame, quaternion and unit conventions for this project. Fixed once, here, and r
 
 `scipy.spatial.transform.Rotation` stores quaternions **scalar-last** (`[x, y, z, w]`) by default, but otherwise uses the same Hamilton composition and the same rotation convention described above.
 
-Conversion happens only in `core.quaternion.to_scipy()` and `from_scipy()`, so the ordering swap is kepts clear and happens only in one place.
+Conversion happens only in `core.quaternion.to_scipy()` and `from_scipy()`, so the ordering swap is kept clear and happens only in one place.
 
 ## Reference frames
 
 | Frame | Origin | Axes | Used for |
 |---|---|---|---|
-| **ECI** (Earth Centered Intertial) | Earth centre | x towards the vernal equinox (this is where the elliptic plane and celestial equator intersect), z along the celestial north pole, y completing the right-hand rule | Inertial reference for attitude and orbital mechanics |
+| **ECI** (Earth Centered Intertial) | Earth centre | x towards the vernal equinox (this is where the ecliptic plane and celestial equator intersect), z along the celestial north pole, y completing the right-hand rule | Inertial reference for attitude and orbital mechanics |
 | **ECEF** (Earth Centered Earth Fixed) | Earth centre | x through the intersection of the Greenwich meridian and the equator, z along the north pole; rotates with the Earth | Fixed ground locations |
 | **LVLH** (orbit frame) | Spacecraft centre of mass | z towards nadir (`−r̂` towards Earth), y along the negative orbit normal (`−(r × v)/‖r × v‖`, opposite of angular momentum vector), x completing the set (points along direction of travel for a circular orbit) | Nadir-pointing reference attitude |
 | **Body** | Spacecraft centre of mass | Principal axes: z along the 3U long axis (the minimum-inertia axis), x and y normal to the long side faces | Sensors, actuators, rigid-body dynamics |
@@ -60,4 +61,4 @@ SI internally, with no exceptions inside the package:
 
 ## Time
 
-Time is a float in **seconds since the scenario epoch**..
+Time is a float in **seconds since the scenario epoch**.
